@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { closeDatabasePool, getPool } from '../config/database.js'
 
 async function initializeDatabase(): Promise<void> {
-  const schemaPath = resolve(import.meta.dirname, '../../../database/schema.sql')
+  const schemaPath = resolve(import.meta.dirname, '../../database/schema.sql')
   const schema = await readFile(schemaPath, 'utf8')
   const client = await getPool().connect()
   try {

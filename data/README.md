@@ -13,6 +13,8 @@ The rows in `synthetic/relationships.csv` and every device, IP, UPI, and bank id
 - `synthetic/relationships.csv`: 12 fictional identifier sets. Three applicants share multiple identifiers as one connected demo group, three share UPI and bank identifiers as a second group, and six have isolated identifiers.
 - `processed/`: reserved for future reproducible transformations; currently empty.
 
+The backend-only Vercel project cannot read files above its configured `backend/` root, so matching runtime copies live under `backend/data/` and `backend/database/`. Keep those copies synchronized; `npm run validate:data` checks them.
+
 All applicant and application identifiers are generated demo identifiers. In database-free mode, the backend loads these CSV fixtures into its in-memory application repository and graph fallback. Shared identifiers and synthetic `previous_default` flags can therefore contribute to demo graph evidence and risk signals under the configured rules; they are not real-world findings.
 
 ## Validation

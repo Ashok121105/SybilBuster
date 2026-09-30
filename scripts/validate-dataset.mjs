@@ -93,6 +93,23 @@ const relationshipColumns = [
   'identifier_provenance',
 ]
 
+for (const relativePath of [
+  'data/raw/applicants.csv',
+  'data/raw/loan_applications.csv',
+  'data/synthetic/relationships.csv',
+  'database/schema.sql',
+]) {
+  const canonicalPath = resolve(projectRoot, relativePath)
+  const backendPath = resolve(projectRoot, 'backend', relativePath)
+  try {
+    if (readFileSync(canonicalPath, 'utf8') !== readFileSync(backendPath, 'utf8')) {
+      issues.push(`${relativePath}: backend deployment copy is out of sync`)
+    }
+  } catch (error) {
+    issues.push(`${relativePath}: backend deployment copy could not be read (${error.message})`)
+  }
+}
+
 const applicants = readCsv('data/raw/applicants.csv', applicantColumns)
 const applications = readCsv('data/raw/loan_applications.csv', applicationColumns)
 const relationships = readCsv('data/synthetic/relationships.csv', relationshipColumns)

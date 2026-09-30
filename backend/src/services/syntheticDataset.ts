@@ -22,7 +22,7 @@ export interface SyntheticGraphRow {
   bankAccountId: string
 }
 
-const dataRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../../data')
+const dataRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../data')
 
 function readCsv(relativePath: string): CsvRow[] {
   const content = readFileSync(resolve(dataRoot, relativePath), 'utf8')

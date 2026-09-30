@@ -32,7 +32,7 @@ interface RelationshipRecord {
 }
 
 async function loadCsv<T extends object>(relativePath: string): Promise<T[]> {
-  const content = await readFile(resolve(import.meta.dirname, '../../../', relativePath), 'utf8')
+  const content = await readFile(resolve(import.meta.dirname, '../../', relativePath), 'utf8')
   return parse(content, { columns: true, bom: true, skip_empty_lines: true, trim: true }) as T[]
 }
 
