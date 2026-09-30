@@ -74,7 +74,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const socket = io(SOCKET_URL, { reconnectionAttempts: 3 })
+    const socket = io(SOCKET_URL, {
+      path: '/api/socket-io/socket.io',
+      transports: ['websocket'],
+      reconnectionAttempts: 3,
+    })
     socket.on('connect', () => setConnected(true))
     socket.on('disconnect', () => setConnected(false))
     socket.on('connect_error', () => setConnected(false))
