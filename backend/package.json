@@ -1,0 +1,35 @@
+{
+  "name": "@sybilbuster/backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "db:init": "tsx src/scripts/db-init.ts",
+    "db:seed": "tsx src/scripts/db-seed.ts",
+    "graph:import": "tsx src/scripts/graph-import.ts",
+    "test": "tsx --test test/riskEngine.test.ts test/graph.test.ts test/hindsightMemory.test.ts"
+  },
+  "dependencies": {
+    "@vectorize-io/hindsight-client": "^0.10.2",
+    "cors": "^2.8.5",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "neo4j-driver": "^6.2.0",
+    "pg": "^8.13.3",
+    "socket.io": "^4.8.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.10",
+    "@types/pg": "^8.11.11",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

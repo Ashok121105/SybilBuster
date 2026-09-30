@@ -1,0 +1,21 @@
+{
+  "name": "sybilbuster",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB \"npm run dev --workspace backend\" \"npm run dev --workspace frontend -- --host 0.0.0.0\"",
+    "build": "npm run build --workspaces",
+    "build:backend": "npm run build --workspace backend",
+    "build:frontend": "npm run build --workspace frontend",
+    "validate:data": "node scripts/validate-dataset.mjs",
+    "db:init": "npm run db:init --workspace backend",
+    "db:seed": "npm run validate:data && npm run db:seed --workspace backend",
+    "graph:import": "npm run graph:import --workspace backend",
+    "test": "npm run test --workspace backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "csv-parse": "^6.1.0"
+  }
+}

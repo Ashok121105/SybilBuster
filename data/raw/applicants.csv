@@ -1,0 +1,13 @@
+applicant_id,age,income,employment_length,loan_purpose,credit_history_length,previous_default
+DEMO-APP-001,24,42000,3.0,education,4.0,false
+DEMO-APP-002,31,67000,7.5,home_improvement,11.0,false
+DEMO-APP-003,28,51000,5.0,small_business,6.5,true
+DEMO-APP-004,42,88000,15.0,medical,20.0,false
+DEMO-APP-005,35,73000,10.0,vehicle,13.0,false
+DEMO-APP-006,26,39000,2.0,education,3.0,false
+DEMO-APP-007,29,56000,4.5,home_improvement,7.0,false
+DEMO-APP-008,47,102000,19.0,small_business,24.0,false
+DEMO-APP-009,33,61000,8.0,vehicle,9.5,false
+DEMO-APP-010,22,28000,1.0,education,1.0,false
+DEMO-APP-011,53,114000,27.0,medical,31.0,false
+DEMO-APP-012,38,82000,12.0,other,16.0,false
