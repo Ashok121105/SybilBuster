@@ -1,11 +1,12 @@
 import type { ApplicationInput, GraphNetworkResponse, InvestigationResponse, LoanApplication, RiskAssessment, RiskSignalType, RiskSimulation } from './types'
 
-const developmentApiUrl = import.meta.env.DEV ? 'http://localhost:4000' : ''
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim()
+const developmentApiUrl = import.meta.env.DEV ? configuredApiUrl || 'http://localhost:4000' : ''
 
-export const API_BASE_URL = (import.meta.env.VITE_API_URL?.trim() || developmentApiUrl).replace(/\/$/, '')
+export const API_BASE_URL = (import.meta.env.PROD ? '' : developmentApiUrl).replace(/\/$/, '')
 export const SOCKET_URL = (import.meta.env.VITE_SOCKET_URL?.trim() || API_BASE_URL).replace(/\/$/, '')
 
-if (import.meta.env.PROD && !API_BASE_URL) {
+if (import.meta.env.PROD && !configuredApiUrl) {
   throw new Error('VITE_API_URL must be configured for production.')
 }
 
